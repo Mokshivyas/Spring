@@ -13,10 +13,10 @@ public class SpringMain {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("greetings.xml");
 		Greeting g = ctx.getBean("festival", Greeting.class);
-		System.out.println(g.greet());
+		//System.out.println(g.greet());
 		
-		Greeting g1 = ctx.getBean("anniversary", Greeting.class);
-		System.out.println(g1.greet());
+		Greeting g1 = ctx.getBean("festival", Greeting.class);
+		//System.out.println(g1.greet());
 	}
 
 }
