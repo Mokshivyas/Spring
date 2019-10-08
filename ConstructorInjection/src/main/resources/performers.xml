@@ -3,8 +3,13 @@
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
 <bean id="Pyare Mohan" class="com.zensar.spring.performers.Juggler">
 <constructor-arg value="1"></constructor-arg>
-
-
 </bean>
+<bean id="twinkle" class="com.zensar.spring.poems.TwinkleTwinkle">
+</bean>
+<bean id="Mokshi Vyas" class="com.zensar.spring.performers.PoeticJuggler">
+<constructor-arg value="1"></constructor-arg>
+<constructor-arg ref="twinkle"></constructor-arg>
+</bean>
+
 </beans>
 
