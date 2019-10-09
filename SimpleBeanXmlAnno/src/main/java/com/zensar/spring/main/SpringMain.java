@@ -15,7 +15,7 @@ public class SpringMain {
 		Greeting g = ctx.getBean("anniversaryGreeting", Greeting.class);
 		//System.out.println(g.greet());
 		
-		Greeting g1 = ctx.getBean("festivalGreeting", Greeting.class);
+		Greeting g1 = ctx.getBean("festival", Greeting.class);
 		//System.out.println(g1.greet());
 	}
 
