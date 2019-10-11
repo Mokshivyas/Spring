@@ -52,26 +52,44 @@ public class ProductDaoImpl implements ProductDao
 
 	@Override
 	public Product getById(int productId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from product where id=?";
+		return jdbcTemplate.query(sql, new Object [] {productId}, new ResultSetExtractor<Product>() {
+
+			@Override
+			public Product extractData(ResultSet rs) throws SQLException, DataAccessException {
+				if(rs.next())
+				{
+					Product product = new Product();
+					product.setProductId(rs.getInt(1));
+					product.setName(rs.getString(2));
+					product.setBrand(rs.getString(3));
+					product.setPrice(rs.getFloat(4));
+					return product;
+				}else
+				return null;
+			}
+		});
 	}
 
 	@Override
 	public void insert(Product product) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into product values(?,?,?,?)";
+		jdbcTemplate.update(sql, product.getProductId(),product.getName(),product.getBrand(),product.getPrice());
+		System.out.println("New product is inserted");
 	}
 
 	@Override
 	public void update(Product product) {
-		// TODO Auto-generated method stub
-		
+		String sql = "update product set name=?,brand=?,price=? where id=?";
+		jdbcTemplate.update(sql, product.getName(),product.getBrand(),product.getPrice(),product.getProductId());
+		System.out.println("Updated succesfully!");
 	}
 
 	@Override
 	public void delete(Product product) {
-		// TODO Auto-generated method stub
-		
+		String sql = "delete from product where id=?";
+		jdbcTemplate.update(sql, product.getProductId());
+		System.out.println("Product deleted");
 	}
     
     
