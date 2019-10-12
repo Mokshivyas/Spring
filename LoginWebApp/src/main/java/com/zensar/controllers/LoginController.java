@@ -16,7 +16,7 @@ public class LoginController
 {
 	@Autowired
 	private UserService userService; 
-	@GetMapping("login")
+	@PostMapping("login")
 	public String checkLogin(User user,ModelMap map) 
 	{
 		if(userService.validateUser(user)) 
