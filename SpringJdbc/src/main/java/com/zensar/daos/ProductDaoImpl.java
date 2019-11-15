@@ -44,6 +44,8 @@ public class ProductDaoImpl implements ProductDao
 					product.setBrand(rs.getString(3));
 					product.setPrice(rs.getFloat(4));
 					products.add(product);
+					
+			
 				}
 				return products;
 			}
@@ -70,6 +72,9 @@ public class ProductDaoImpl implements ProductDao
 			}
 		});
 	}
+	
+	
+	
 
 	@Override
 	public void insert(Product product) {
@@ -92,6 +97,8 @@ public class ProductDaoImpl implements ProductDao
 		System.out.println("Product deleted");
 	}
     
+    
+  
     
    
 
